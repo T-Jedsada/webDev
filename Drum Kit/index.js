@@ -1,45 +1,43 @@
 var allButtons = document.querySelectorAll(".drum");
+
 for (var i = 0; i < allButtons.length; i++) {
-  allButtons[i].addEventListener("click", function() {
+  allButtons[i].addEventListener("click", () => {
     playSound(this.innerHTML);
   });
 }
 
-document.addEventListener("keypress", function(event) {
+document.addEventListener("keypress", (event) => {
   playSound(event.key);
 });
+
+function playMusic(filename) {
+  var sound = new Audio(`sounds/${filename}.mp3`);
+  sound.play();
+}
 
 function playSound(key) {
   switch (key) {
     case "w":
-      var tom1 = new Audio("sounds/tom-1.mp3");
-      tom1.play();
+      playMusic("tom-1")
       break;
     case "a":
-      var tom2 = new Audio("sounds/tom-2.mp3");
-      tom2.play();
+      playMusic("tom-2")
       break;
     case "s":
-      var tom3 = new Audio("sounds/tom-3.mp3");
-      tom3.play();
+      playMusic("tom-3")
       break;
     case "d":
-      var tom4 = new Audio("sounds/tom-4.mp3");
-      tom4.play();
+      playMusic("tom-4")
       break;
     case "j":
-      var snare = new Audio("sounds/snare.mp3");
-      snare.play();
+      playMusic("snare")
       break;
     case "k":
-      var crash = new Audio("sounds/crash.mp3");
-      crash.play();
+      playMusic("crash")
       break;
     case "l":
-      var kickbass = new Audio("sounds/kick-bass.mp3");
-      kickbass.play();
+      playMusic("kick-bass")
       break;
     default:
-      
   }
 }
