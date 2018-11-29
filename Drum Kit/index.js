@@ -1,8 +1,8 @@
 var allButtons = document.querySelectorAll(".drum");
 
 for (var i = 0; i < allButtons.length; i++) {
-  allButtons[i].addEventListener("click", () => {
-    playSound(this.innerHTML);
+  allButtons[i].addEventListener("click", (event) => {
+    playSound(event.target.innerHTML);
   });
 }
 
